@@ -1,0 +1,16 @@
+# SCRAP APP 1.0
+
+scrap app es una aplicacion de consola desarrollada con Node Js, para realizar scraping de productos del e-commerce Mercado Libre, podras obtener la listas completa del producto deseado en el formato .xlsx (Excel). Los campos obtenidos son Nombre / Precio / Url del producto / Url de imagen
+
+## Instalacion
+
+
+
+```bash
+npm install
+```
+
+## Usage
+
+```node
+node server.js
