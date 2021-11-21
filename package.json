@@ -14,7 +14,9 @@
   "author": "Joel Cabana",
   "license": "ISC",
   "dependencies": {
+    "chalk": "^4.1.2",
     "exceljs": "^4.3.0",
+    "inquirer": "^8.2.0",
     "puppeteer": "^11.0.0",
     "random-useragent": "^0.5.0"
   }
