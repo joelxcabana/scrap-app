@@ -19,11 +19,31 @@ const initialization = async() => {
 
    await page.goto('https://listado.mercadolibre.com.ar/placa-de-video#D[A:placa%20de%20video]')
    
+   //buscar por clase (.) id (#) sin nada es elemento html tag
+   await page.waitForSelector('.ui-search-results')
+
+   //$$ significa que se repite el elemento
+   const listaItems = await page.$$('.ui-search-layout__item')
+   for(const item of listaItems){
+
+    //sacar el elemento renderizado
+    const objectoPrecio = await item.$('.price-tag-fraction')
+    //del elemento sacar el texto
+    const getPrice = await page.evaluate(objectoPrecio => objectoPrecio.innerText, objectoPrecio)
+
+     //sacar el elemento renderizado
+     const objectoNombre = await item.$('.ui-search-item__title')
+     //del elemento sacar el texto
+     const getName = await page.evaluate(objectoNombre => objectoNombre.innerText, objectoNombre)
+     console.log(`${getPrice} - ${getName}`)
+   }
+   
+
    //sacar foto de lo que esta viendo
    //await page.screenshot({path:'example.png'})
 
    //cerrar el navegador
-   await browser.close()
+  // await browser.close()
 }
 
 initialization()
